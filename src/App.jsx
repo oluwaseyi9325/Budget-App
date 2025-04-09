@@ -5,7 +5,7 @@ function App() {
     const [name, setName] = useState("")
     const [amount, setAmount] = useState("")
     const [expensesData,setExpensesData]=useState([])
-    const [message, setMessage] = useState("Please Enter all field")
+    const [message, setMessage] = useState("Please Enter all field...")
     const [AmountSpent, setAmountSpent] = useState(0)
     const [AmountRemain,setAmountRemain]=useState(0)
     
