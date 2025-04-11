@@ -1,7 +1,7 @@
 import React, { useState ,useEffect} from 'react'
 
 function App() {
-    const [budget, setBudget] = useState("")
+    const [budget, setBudget] = useState("seyi")
     const [name, setName] = useState("")
     const [amount, setAmount] = useState("")
     const [expensesData,setExpensesData]=useState([])
