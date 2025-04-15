@@ -1,22 +1,32 @@
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-const dummyBlog = {
-  id: 1,
-  title: "React & Tailwind: Perfect Combo",
-  content: `Tailwind CSS allows you to build UIs without writing CSS classes manually.\n\nCombine it with React and you get performance and productivity!`,
-  image: "https://images.unsplash.com/photo-1591267990532-e5bdb1b0ceb8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhY3QlMjB1c2VlZmZlY3R8ZW58MHx8MHx8fDA%3D",
-  category: "Tech",
-};
 
 const ViewBlog = () => {
-  const { id } = useParams();
+  const params = useParams();
+  const [BlogData, setBlogData] = useState([]);
+  console.log(params.id);
+  useEffect(() => {
+    const getLocalStore = JSON.parse(localStorage.getItem("blogs"));
+    if (getLocalStore) {
+      setBlogData(getLocalStore.filter((blog) => blog.id == params.id));
+      // console.log(getLocalStore.filter((blog) => blog.id == params.id));
+    } 
+  }, []);
+
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
-      <img src={dummyBlog.image} alt={dummyBlog.title} className="w-full h-64 object-cover rounded-lg mb-4" />
-      <span className="text-xs text-white bg-blue-700 px-2 py-1 rounded">{dummyBlog.category}</span>
-      <h1 className="text-3xl font-bold mt-2">{dummyBlog.title}</h1>
-      <p className="text-gray-700 mt-4 whitespace-pre-line">{dummyBlog.content}</p>
+      {
+        BlogData[0]? (
+          <divx>
+            <img src={BlogData[0].image} alt={BlogData[0].image} className="w-full h-64 object-cover rounded-lg mb-4" />
+      <span className="text-xs text-white bg-blue-700 px-2 py-1 rounded">{BlogData[0].category}</span>
+      <h1 className="text-3xl font-bold mt-2">{BlogData[0].title}</h1>
+      <p className="text-gray-700 mt-4 whitespace-pre-line">{BlogData[0].content}</p>
+          </divx>
+        ):null
+    }
     </div>
   );
 };

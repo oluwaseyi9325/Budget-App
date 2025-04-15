@@ -10,6 +10,7 @@ export default function App() {
         <Link to="/blogs">Blog List</Link>
         <Link to="/create">Create Blog</Link>
       </nav>
+      ,<div className="card">hey</div>
 
       <Routes>
         <Route index element={<BlogList />} />
@@ -17,6 +18,8 @@ export default function App() {
         <Route path="/blogs/:id" element={<ViewBlog />} />
         <Route path="/create" element={<CreateBlog />} />
       </Routes>
+
+
     </>
   );
 }
