@@ -19,7 +19,7 @@ const App = () => {
       });
   }, []);
 
-  if (loading) return <p className="text-center mt-10 text-gray-600">Loading countries...</p>;
+  if (loading) return <p className="text-center mt-10 text-gray-600">Loading cowhvgdjwqjhgdqwgku</p>;
   if (error) return <p className="text-center mt-10 text-red-500">Error: {error}</p>;
 
   return (
